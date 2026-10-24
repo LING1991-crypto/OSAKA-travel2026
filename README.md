@@ -689,7 +689,7 @@
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-            countdownEl.innerHTML = `🗾 距離出發還有：${days} 天 ${hours} 小時 ${minutes} 分鐘`;
+            countdownEl.innerHTML = `🇯🇵 距離出發還有：${days} 天 ${hours} 小時 ${minutes} 分鐘`;
         }
 
         updateCountdown();
