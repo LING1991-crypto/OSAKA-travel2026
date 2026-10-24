@@ -1,9 +1,8 @@
-<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>大阪四天三夜悠哉散步手帳</title>
+    <title>2026 冬天大阪旅遊</title>
     <!-- Google Fonts: Zen Maru Gothic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -397,10 +396,10 @@
     <!-- 頂端固定選單：使用 CSS Grid 網格對齊 -->
     <header>
         <div class="header-grid">
-            <div class="header-item logo-box">🐙 大阪四天三夜</div>
+            <div class="header-item logo-box">🐙 2026冬天大阪四天三夜</div>
             <a href="#home" class="header-item">首頁</a>
             <a href="#itinerary" class="header-item">行程</a>
-            <a href="#info" class="header-item">資訊</a>
+            <a href="#info" class="header-item">住宿資訊</a>
         </div>
     </header>
 
@@ -408,8 +407,8 @@
 
         <!-- 首頁區塊 -->
         <section id="home" class="card hero">
-            <h1>大阪漫遊手帳 🎒</h1>
-            <p>出發日期：2026/12/14 ｜ 80% 逛街美食 ＋ 20% 街區散步</p>
+            <h1>2026冬天大阪旅遊🎒</h1>
+            <p>出發日期：2026/12/14 ｜ 逛街美食 ＋ 街區漫遊</p>
             
             <!-- 精緻大阪特色 SVG 插圖 -->
             <svg class="scene-container" viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -450,11 +449,11 @@
                 <h2>✈️ 航班資訊</h2>
                 <div class="flight-row">
                     <div><strong>去程：</strong> 桃園中正機場 → 大阪關西機場</div>
-                    <div>07:30 - 11:00</div>
+                    <div> H11228 07:30 - 11:00</div>
                 </div>
                 <div class="flight-row">
                     <div><strong>回程：</strong> 大阪關西機場 → 桃園中正機場</div>
-                    <div>14:00 - 14:25</div>
+                    <div>H11229 14:00 - 14:25</div>
                 </div>
             </div>
 
