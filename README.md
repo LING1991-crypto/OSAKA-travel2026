@@ -1,1 +1,633 @@
 # OSAKA-travel2026
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>大阪四天三夜悠哉散步手帳</title>
+    <!-- Google Fonts: Zen Maru Gothic -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #FFFCF6;
+            --line-color: #3E3A39;
+            --pink: #F2A497;
+            --yellow: #F6D27A;
+            --blue: #A8D3E6;
+            --green: #B9DAA5;
+            --white: #FFFFFF;
+            --shadow: 4px 4px 0px #3E3A39;
+            --shadow-sm: 2px 2px 0px #3E3A39;
+            --border: 3px solid #3E3A39;
+            --radius: 20px;
+            --radius-lg: 28px;
+            --radius-sm: 12px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--line-color);
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-weight: 500;
+            line-height: 1.6;
+            padding-bottom: 80px;
+        }
+
+        /* 頂端固定選單 */
+        header {
+            position: sticky;
+            top: 0;
+            background-color: var(--bg-color);
+            border-bottom: var(--border);
+            z-index: 100;
+            padding: 12px 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.1rem;
+            font-weight: 700;
+            background: var(--yellow);
+            padding: 4px 12px;
+            border: var(--border);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-sm);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 8px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--line-color);
+            font-size: 0.9rem;
+            font-weight: 700;
+            background: var(--white);
+            padding: 4px 10px;
+            border: var(--border);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-sm);
+            display: inline-block;
+            transition: transform 0.1s, box-shadow 0.1s;
+        }
+
+        nav a:active {
+            transform: translate(2px, 2px);
+            box-shadow: none;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 16px;
+        }
+
+        /* 通用卡片樣式 */
+        .card {
+            background-color: var(--white);
+            border: var(--border);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow);
+            padding: 20px;
+            margin-bottom: 24px;
+        }
+
+        /* 首頁區塊 */
+        .hero {
+            text-align: center;
+            background-color: var(--blue);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h1 {
+            font-size: 1.6rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+
+        .hero p {
+            font-size: 0.95rem;
+            margin-bottom: 16px;
+        }
+
+        .countdown-box {
+            display: inline-flex;
+            gap: 8px;
+            background: var(--white);
+            border: var(--border);
+            padding: 8px 16px;
+            border-radius: var(--radius);
+            box-shadow: var(--shadow-sm);
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        /* SVG 插圖動畫 */
+        .floating-svg {
+            animation: float 3s ease-in-out infinite;
+            margin: 10px auto;
+            display: block;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        /* 航班卡片 */
+        .flight-card {
+            background-color: var(--yellow);
+        }
+
+        .flight-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: var(--white);
+            border: var(--border);
+            border-radius: var(--radius-sm);
+            padding: 10px 14px;
+            margin-bottom: 10px;
+            box-shadow: var(--shadow-sm);
+            font-size: 0.9rem;
+        }
+
+        .flight-row:last-child {
+            margin-bottom: 0;
+        }
+
+        /* 住宿資訊 */
+        .hotel-card {
+            background-color: var(--green);
+        }
+
+        /* 日期切換按鈕 */
+        .day-tabs {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 16px;
+            overflow-x: auto;
+            padding-bottom: 4px;
+        }
+
+        .day-tab {
+            flex: 1;
+            min-width: 75px;
+            background: var(--white);
+            border: var(--border);
+            border-radius: var(--radius-sm);
+            padding: 8px 4px;
+            text-align: center;
+            font-family: 'Zen Maru Gothic', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            box-shadow: var(--shadow-sm);
+            transition: background 0.2s;
+        }
+
+        .day-tab.active {
+            background: var(--pink);
+        }
+
+        /* 行程時間軸 */
+        .day-content {
+            display: none;
+        }
+
+        .day-content.active {
+            display: block;
+            animation: bounceIn 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes bounceIn {
+            0% { opacity: 0; transform: scale(0.95) translateY(10px); }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .timeline {
+            position: relative;
+            padding-left: 20px;
+            border-left: 3px dashed var(--line-color);
+            margin-left: 10px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 20px;
+            background: var(--white);
+            border: var(--border);
+            border-radius: var(--radius);
+            padding: 14px;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -27.5px;
+            top: 16px;
+            width: 12px;
+            height: 12px;
+            background: var(--yellow);
+            border: var(--border);
+            border-radius: 50%;
+        }
+
+        .time-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 6px;
+            flex-wrap: wrap;
+            gap: 6px;
+        }
+
+        .time-badge {
+            font-weight: 700;
+            font-size: 0.85rem;
+            background: var(--bg-color);
+            border: 2px solid var(--line-color);
+            padding: 2px 8px;
+            border-radius: 8px;
+        }
+
+        .tag-transport {
+            background-color: var(--blue);
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border: 2px solid var(--line-color);
+            border-radius: 8px;
+            font-weight: 700;
+        }
+
+        .tag-must {
+            background-color: var(--pink);
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border: 2px solid var(--line-color);
+            border-radius: 8px;
+            font-weight: 700;
+            margin-left: 4px;
+        }
+
+        .item-desc {
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* 待辦清單 */
+        .todo-card {
+            background-color: var(--pink);
+        }
+
+        .todo-list {
+            list-style: none;
+        }
+
+        .todo-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--white);
+            border: var(--border);
+            padding: 10px 14px;
+            border-radius: var(--radius-sm);
+            margin-bottom: 8px;
+            box-shadow: var(--shadow-sm);
+            font-size: 0.9rem;
+            cursor: pointer;
+        }
+
+        .todo-item input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--line-color);
+            cursor: pointer;
+        }
+
+        .todo-item.checked span {
+            text-decoration: line-through;
+            color: #888;
+        }
+
+        h2 {
+            font-size: 1.2rem;
+            margin-bottom: 14px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* 減少動態效果支援 */
+        @media (prefers-reduced-motion: reduce) {
+            .floating-svg,
+            .day-content.active {
+                animation: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 頂端固定選單 -->
+    <header>
+        <div class="logo">🍊 大阪四天三夜</div>
+        <nav>
+            <ul>
+                <li><a href="#home">首頁</a></li>
+                <li><a href="#itinerary">行程</a></li>
+                <li><a href="#info">資訊</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+
+        <!-- 首頁區塊 -->
+        <section id="home" class="card hero">
+            <h1>大阪漫遊手帳 🎒</h1>
+            <p>80% 逛街美食 ＋ 20% 街區散步</p>
+            
+            <!-- SVG 插圖：大阪地標與小飛機 -->
+            <svg class="floating-svg" width="140" height="100" viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <!-- 雲朵 -->
+                <path d="M25 45C20 45 15 48 15 53C15 58 20 60 25 60H55C60 60 63 56 61 52C65 46 58 40 51 43C47 38 38 39 37 45C33 43 28 44 25 45Z" fill="#FFFFFF" stroke="#3E3A39" stroke-width="3"/>
+                <!-- 大阪城簡易造型 -->
+                <path d="M75 75V55H95V75H75Z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
+                <path d="M68 55H102V50H68V55Z" fill="#F2A497" stroke="#3E3A39" stroke-width="3"/>
+                <path d="M80 50V40H90V50H80Z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3"/>
+                <!-- 飛機 -->
+                <path d="M30 25L50 20L42 32L38 28L30 25Z" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2.5"/>
+            </svg>
+
+            <div class="countdown-box" id="countdown">
+                載入倒數中...
+            </div>
+        </section>
+
+        <!-- 航班與住宿資訊 -->
+        <section id="info">
+            <div class="card flight-card">
+                <h2>✈️ 航班資訊</h2>
+                <div class="flight-row">
+                    <div><strong>去程：</strong> 桃園 (TPE) → 大阪 (KIX)</div>
+                    <div>08:35 - 12:15</div>
+                </div>
+                <div class="flight-row">
+                    <div><strong>回程：</strong> 大阪 (KIX) → 桃園 (TPE)</div>
+                    <div>18:20 - 20:10</div>
+                </div>
+            </div>
+
+            <div class="card hotel-card">
+                <h2>🏨 住宿資訊</h2>
+                <div class="flight-row" style="background: var(--white);">
+                    <div><strong>梅田中心住宿</strong><br><small style="color: #666;">以梅田為中心點，交通逛街極便利</small></div>
+                    <div>4天3夜</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 每日行程區塊 -->
+        <section id="itinerary" class="card" style="background-color: #FFFDF9;">
+            <h2>📅 每日行程</h2>
+            
+            <!-- 日期切換按鈕 -->
+            <div class="day-tabs">
+                <button class="day-tab active" onclick="switchDay(1)">DAY 1</button>
+                <button class="day-tab" onclick="switchDay(2)">DAY 2</button>
+                <button class="day-tab" onclick="switchDay(3)">DAY 3</button>
+                <button class="day-tab" onclick="switchDay(4)">DAY 4</button>
+            </div>
+
+            <!-- DAY 1 -->
+            <div id="day-1" class="day-content active">
+                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：梅田＋中崎町</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="time-header">
+                            <span class="time-badge">下午 01:30</span>
+                            <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
+                        </div>
+                        <div class="item-desc"><strong>梅田逛街血拼</strong><br>LUCUA ／ Grand Front Osaka ／ 阪急梅田 ／ 大丸梅田，展開完美購物之旅！</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-header">
+                            <span class="time-badge">下午 03:30</span>
+                            <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+                        </div>
+                        <div class="item-desc"><strong>中崎町散步漫遊</strong><br>穿梭老屋、古著店、手作小店與特色咖啡廳，感受復古文青氣息。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-header">
+                            <span class="time-badge">傍晚 06:30</span>
+                            <div><span class="tag-transport">步行</span></div>
+                        </div>
+                        <div class="item-desc"><strong>晚餐與夜景</strong><br>返回梅田享用美味晚餐，並欣賞璀璨的梅田夜景。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 2 -->
+            <div id="day-2" class="day-content">
+                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：木津市場＋新世界＋心齋橋＋堀江</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="time-header">
+                            <span class="time-badge">早上 09:00</span>
+                            <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
+                        </div>
+                        <div class="item-desc"><strong>木津市場早市</strong><br>品嚐新鮮海鮮早餐，體驗道地的市場早晨風情。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-header">
+                            <span class="time-badge">上午 10:30</span>
+                            <div><span class="tag-transport">步行</span></div>
+                        </div>
+                        <div class="item-desc"><strong>新世界與通天閣</strong><br>漫步懷舊新世界街區，打卡地標通天閣。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-header">
+                            <span class="time-badge">中午 12:00</span>
+                            <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
+                        </div>
+                        <div class="item-desc"><strong>心齋橋拉麵午餐 & 商店街</strong><br>品嚐心齋橋人氣拉麵，隨後瘋狂掃貨心齋橋筋商店街與大丸百貨。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-header">
+                            <span class="time-badge">下午 03:00</span>
+                            <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+                        </div>
+                        <div class="item-desc"><strong>美國村 → 堀江 Orange Street</strong><br>穿插造訪個性小店、選物店與質感咖啡廳。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-header">
+                            <span class="time-badge">傍晚 05:30</span>
+                            <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+                        </div>
+                        <div class="item-desc"><strong>道頓堀與法善寺橫丁</strong><br>漫步道頓堀霓虹燈區，探訪寧靜的法善寺橫丁。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-header">
+                            <span class="time-badge">晚上 07:30</span>
+                            <div><span class="tag-transport">步行</span></div>
+                        </div>
+                        <div class="item-desc"><strong>和牛晚餐</strong><br>享用精緻的和牛燒肉或和牛壽喜燒大餐。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 3 -->
+            <div id="day-3" class="day-content">
+                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：天神橋筋＋中崎町漫遊</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="time-header">
+                            <span class="time-badge">上午 09:30</span>
+                            <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
+                        </div>
+                        <div class="item-desc"><strong>天神橋筋商店街</strong><br>造訪日本最長商店街，邊走邊逛特色小店、品嚐在地小吃。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-header">
+                            <span class="time-badge">中午 12:00</span>
+                            <div><span class="tag-transport">步行</span></div>
+                        </div>
+                        <div class="item-desc"><strong>午餐時光</strong><br>在巷弄中尋找喜愛的質感小店享用午餐。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-header">
+                            <span class="time-badge">下午 02:00</span>
+                            <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+                        </div>
+                        <div class="item-desc"><strong>中崎町慢活下午茶</strong><br>再次造訪中崎町，深入古著店、雜貨舖、選物店，享受悠閒甜點時光。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-header">
+                            <span class="time-badge">傍晚 06:00</span>
+                            <div><span class="tag-transport">地鐵</span></div>
+                        </div>
+                        <div class="item-desc"><strong>梅田最後衝刺</strong><br>返回梅田進行最後採買與晚餐。</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DAY 4 -->
+            <div id="day-4" class="day-content">
+                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：梅田自由購物 ➔ 賦歸</p>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="time-header">
+                            <span class="time-badge">早上 09:00</span>
+                            <div><span class="tag-transport">步行</span></div>
+                        </div>
+                        <div class="item-desc"><strong>悠閒早餐</strong><br>享用美味早餐，整理行李與戰利品。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-header">
+                            <span class="time-badge">上午 10:00</span>
+                            <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+                        </div>
+                        <div class="item-desc"><strong>梅田自由購物與伴手禮</strong><br>最後機會補齊藥妝、伴手禮與心儀衣物。</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="time-header">
+                            <span class="time-badge">下午 02:30</span>
+                            <div><span class="tag-transport">特急列車</span></div>
+                        </div>
+                        <div class="item-desc"><strong>前往關西機場</strong><br>回飯店拿行李，搭乘南海電鐵或Haruka前往關西機場，平安搭機返台！</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 打勾待辦清單 -->
+        <section class="card todo-card">
+            <h2>📝 行李與行前待辦</h2>
+            <ul class="todo-list">
+                <li class="todo-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> <span>護照與日幣現金／信用卡確認</span>
+                </li>
+                <li class="todo-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> <span>Visit Japan Web 填寫完成</span>
+                </li>
+                <li class="todo-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> <span>網卡／eSIM 啟用確認</span>
+                </li>
+                <li class="todo-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> <span>行動電源與充電線</span>
+                </li>
+                <li class="todo-item" onclick="toggleCheck(this)">
+                    <input type="checkbox"> <span>輕便好走的散步鞋 👟</span>
+                </li>
+            </ul>
+        </section>
+
+    </div>
+
+    <script>
+        // 日期切換功能
+        function switchDay(dayNum) {
+            const contents = document.querySelectorAll('.day-content');
+            const tabs = document.querySelectorAll('.day-tab');
+
+            contents.forEach(el => el.classList.remove('active'));
+            tabs.forEach(el => el.classList.remove('active'));
+
+            document.getElementById(`day-${dayNum}`).classList.add('active');
+            event.currentTarget.classList.add('active');
+        }
+
+        // 待辦清單互動打勾
+        function toggleCheck(item) {
+            const checkbox = item.querySelector('input[type="checkbox"]');
+            if (event.target !== checkbox) {
+                checkbox.checked = !checkbox.checked;
+            }
+            if (checkbox.checked) {
+                item.classList.add('checked');
+            } else {
+                item.classList.remove('checked');
+            }
+        }
+
+        // 出發倒數計時器（以 2026-11-01 08:35:00 為預設出發示範日期，可自行調整）
+        function updateCountdown() {
+            const departureDate = new Date('2026-11-01T08:35:00').getTime();
+            const now = new Date().getTime();
+            const distance = departureDate - now;
+
+            const countdownEl = document.getElementById('countdown');
+            if (distance < 0) {
+                countdownEl.innerHTML = "🎉 旅程已經展開或圓滿結束囉！";
+                return;
+            }
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            countdownEl.innerHTML = `✈️ 距離出發還有：${days} 天 ${hours} 小時 ${minutes} 分鐘`;
+        }
+
+        updateCountdown();
+        setInterval(updateCountdown, 60000);
+    </script>
+</body>
+</html>
