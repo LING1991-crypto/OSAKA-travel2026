@@ -1,8 +1,9 @@
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 冬天大阪旅遊</title>
+    <title>大阪四天三夜悠哉散步手帳</title>
     <!-- Google Fonts: Zen Maru Gothic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -261,11 +262,12 @@
             100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
+        /* 時間軸線與圓點精準置中對齊 */
         .timeline {
             position: relative;
-            padding-left: 20px;
+            padding-left: 24px;
             border-left: 3px dashed var(--line-color);
-            margin-left: 10px;
+            margin-left: 14px;
         }
 
         .timeline-item {
@@ -282,8 +284,9 @@
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -27.5px;
-            top: 16px;
+            /* 讓圓點精準水平置中壓在 3px 的虛線上 (-25.5px = -(padding-left 24px + 虛線寬度的一半 1.5px)) */
+            left: -25.5px;
+            top: 18px;
             width: 12px;
             height: 12px;
             background: var(--yellow);
@@ -396,10 +399,10 @@
     <!-- 頂端固定選單：使用 CSS Grid 網格對齊 -->
     <header>
         <div class="header-grid">
-            <div class="header-item logo-box">🐙 2026大阪四天三夜</div>
+            <div class="header-item logo-box">🐙 大阪四天三夜</div>
             <a href="#home" class="header-item">首頁</a>
             <a href="#itinerary" class="header-item">行程</a>
-            <a href="#info" class="header-item">住宿</a>
+            <a href="#info" class="header-item">資訊</a>
         </div>
     </header>
 
@@ -407,8 +410,8 @@
 
         <!-- 首頁區塊 -->
         <section id="home" class="card hero">
-            <h1>2026冬天大阪旅遊🎒</h1>
-            <p>出發日期：2026/12/14 ｜ 逛街/美食/漫遊</p>
+            <h1>大阪漫遊手帳 🎒</h1>
+            <p>出發日期：2026/12/14 ｜ 80% 逛街美食 ＋ 20% 街區散步</p>
             
             <!-- 精緻大阪特色 SVG 插圖 -->
             <svg class="scene-container" viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -449,11 +452,11 @@
                 <h2>✈️ 航班資訊</h2>
                 <div class="flight-row">
                     <div><strong>去程：</strong> 桃園中正機場 → 大阪關西機場</div>
-                    <div> H11228 07:30 - 11:00</div>
+                    <div>07:30 - 11:00</div>
                 </div>
                 <div class="flight-row">
                     <div><strong>回程：</strong> 大阪關西機場 → 桃園中正機場</div>
-                    <div>H11229 14:00 - 14:25</div>
+                    <div>14:00 - 14:25</div>
                 </div>
             </div>
 
@@ -517,42 +520,42 @@
                             <span class="time-badge">早上 09:00</span>
                             <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
                         </div>
-                        <div class="item-desc"><strong>木津市場早市</strong><br>品嚐新鮮海鮮早餐，體驗道地的市場早晨風情[cite: 1]。</div>
+                        <div class="item-desc"><strong>木津市場早市</strong><br>品嚐新鮮海鮮早餐，體驗道地的市場早晨風情[span_0](start_span)[span_0](end_span)。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">上午 10:30</span>
                             <div><span class="tag-transport">步行</span></div>
                         </div>
-                        <div class="item-desc"><strong>新世界與通天閣</strong><br>漫步懷舊新世界街區，打卡地標通天閣[cite: 1]。</div>
+                        <div class="item-desc"><strong>新世界與通天閣</strong><br>漫步懷舊新世界街區，打卡地標通天閣[span_1](start_span)[span_1](end_span)。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">中午 12:00</span>
                             <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
                         </div>
-                        <div class="item-desc"><strong>心齋橋拉麵午餐 & 商店街</strong><br>品嚐心齋橋人氣拉麵，隨後瘋狂掃貨心齋橋筋商店街與大丸心齋橋[cite: 1]。</div>
+                        <div class="item-desc"><strong>心齋橋拉麵午餐 & 商店街</strong><br>品嚐心齋橋人氣拉麵，隨後瘋狂掃貨心齋橋筋商店街與大丸心齋橋[span_2](start_span)[span_2](end_span)。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">下午 03:00</span>
                             <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
                         </div>
-                        <div class="item-desc"><strong>美國村 → 堀江 Orange Street</strong><br>穿插造訪個性小店、選物店與質感咖啡廳[cite: 1]。</div>
+                        <div class="item-desc"><strong>美國村 → 堀江 Orange Street</strong><br>穿插造訪個性小店、選物店與質感咖啡廳[span_3](start_span)[span_3](end_span)。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">傍晚 05:30</span>
                             <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
                         </div>
-                        <div class="item-desc"><strong>道頓堀與法善寺橫丁</strong><br>漫步道頓堀霓虹燈區，探訪寧靜的法善寺橫丁[cite: 1]。</div>
+                        <div class="item-desc"><strong>道頓堀與法善寺橫丁</strong><br>漫步道頓堀霓虹燈區，探訪寧靜的法善寺橫丁[span_4](start_span)[span_4](end_span)。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">晚上 07:30</span>
                             <div><span class="tag-transport">步行</span></div>
                         </div>
-                        <div class="item-desc"><strong>和牛晚餐</strong><br>享用精緻的和牛燒肉或和牛壽喜燒大餐[cite: 1]。</div>
+                        <div class="item-desc"><strong>和牛晚餐</strong><br>享用精緻的和牛燒肉或和牛壽喜燒大餐[span_5](start_span)[span_5](end_span)。</div>
                     </div>
                 </div>
             </div>
@@ -566,28 +569,28 @@
                             <span class="time-badge">上午 09:30</span>
                             <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
                         </div>
-                        <div class="item-desc"><strong>天神橋筋商店街</strong><br>造訪日本最長商店街，邊走邊逛特色小店、品嚐在地小吃[cite: 1]。</div>
+                        <div class="item-desc"><strong>天神橋筋商店街</strong><br>造訪日本最長商店街，邊走邊逛特色小店、品嚐在地小吃[span_6](start_span)[span_6](end_span)。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">中午 12:00</span>
                             <div><span class="tag-transport">步行</span></div>
                         </div>
-                        <div class="item-desc"><strong>午餐時光</strong><br>在巷弄中尋找喜愛的質感小店享用午餐[cite: 1]。</div>
+                        <div class="item-desc"><strong>午餐時光</strong><br>在巷弄中尋找喜愛的質感小店享用午餐[span_7](start_span)[span_7](end_span)。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">下午 02:00</span>
                             <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
                         </div>
-                        <div class="item-desc"><strong>中崎町慢活下午茶</strong><br>再次造訪中崎町，深入古著店、雜貨舖、選物店，享受悠閒甜點時光[cite: 1]。</div>
+                        <div class="item-desc"><strong>中崎町慢活下午茶</strong><br>再次造訪中崎町，深入古著店、雜貨舖、選物店，享受悠閒甜點時光[span_8](start_span)[span_8](end_span)。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">傍晚 06:00</span>
                             <div><span class="tag-transport">地鐵</span></div>
                         </div>
-                        <div class="item-desc"><strong>梅田最後衝刺</strong><br>返回梅田進行最後採買與晚餐[cite: 1]。</div>
+                        <div class="item-desc"><strong>梅田最後衝刺</strong><br>返回梅田進行最後採買與晚餐[span_9](start_span)[span_9](end_span)。</div>
                     </div>
                 </div>
             </div>
@@ -601,14 +604,14 @@
                             <span class="time-badge">早上 09:00</span>
                             <div><span class="tag-transport">步行</span></div>
                         </div>
-                        <div class="item-desc"><strong>悠閒早餐</strong><br>於飯店享用美味早餐，整理行李與戰利品[cite: 1]。</div>
+                        <div class="item-desc"><strong>悠閒早餐</strong><br>於飯店享用美味早餐，整理行李與戰利品[span_10](start_span)[span_10](end_span)。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">上午 10:00</span>
                             <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
                         </div>
-                        <div class="item-desc"><strong>梅田自由購物與伴手禮</strong><br>最後機會補齊藥妝、伴手禮與心儀衣物[cite: 1]。</div>
+                        <div class="item-desc"><strong>梅田自由購物與伴手禮</strong><br>最後機會補齊藥妝、伴手禮與心儀衣物[span_11](start_span)[span_11](end_span)。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
@@ -689,7 +692,7 @@
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-            countdownEl.innerHTML = `🇯🇵 距離出發還有：${days} 天 ${hours} 小時 ${minutes} 分鐘`;
+            countdownEl.innerHTML = `✈️ 距離 2026/12/14 出發還有：${days} 天 ${hours} 小時 ${minutes} 分鐘`;
         }
 
         updateCountdown();
