@@ -396,7 +396,7 @@
     <!-- 頂端固定選單：使用 CSS Grid 網格對齊 -->
     <header>
         <div class="header-grid">
-            <div class="header-item logo-box">🐙 2026冬天大阪四天三夜</div>
+            <div class="header-item logo-box">🐙 2026大阪四天三夜</div>
             <a href="#home" class="header-item">首頁</a>
             <a href="#itinerary" class="header-item">行程</a>
             <a href="#info" class="header-item">住宿</a>
@@ -408,7 +408,7 @@
         <!-- 首頁區塊 -->
         <section id="home" class="card hero">
             <h1>2026冬天大阪旅遊🎒</h1>
-            <p>出發日期：2026/12/14 ｜ 逛街美食＋街區漫遊</p>
+            <p>出發日期：2026/12/14 ｜ 逛街/美食/漫遊</p>
             
             <!-- 精緻大阪特色 SVG 插圖 -->
             <svg class="scene-container" viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg">
