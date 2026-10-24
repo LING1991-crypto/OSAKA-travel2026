@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
@@ -39,7 +40,7 @@
             padding-bottom: 80px;
         }
 
-        /* 頂端固定選單：滿版、水平置中、高度一致 */
+        /* 頂端固定選單：使用 CSS Grid 確保四個方塊完美水平置中與等高對齊 */
         header {
             position: sticky;
             top: 0;
@@ -50,54 +51,42 @@
             padding: 10px 16px;
         }
 
-        .header-inner {
+        .header-grid {
             width: 100%;
             max-width: 560px;
             margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            display: grid;
+            grid-template-columns: 1.8fr 1fr 1fr 1fr;
             gap: 6px;
+            align-items: center;
         }
 
-        /* 統一標頭所有方塊的高度與內距 */
-        .logo, nav a {
+        .header-item {
             height: 42px;
-            display: inline-flex;
+            display: flex;
             align-items: center;
             justify-content: center;
             border: var(--border);
             border-radius: var(--radius-sm);
             box-shadow: var(--shadow-sm);
             font-weight: 700;
+            font-size: 0.8rem;
             white-space: nowrap;
-        }
-
-        .logo {
-            font-size: 0.9rem;
-            background: var(--yellow);
-            padding: 0 12px;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 6px;
-            align-items: center;
-        }
-
-        nav a {
             text-decoration: none;
             color: var(--line-color);
-            font-size: 0.85rem;
             background: var(--white);
-            padding: 0 10px;
             transition: transform 0.1s, box-shadow 0.1s;
         }
 
-        nav a:active {
+        .header-item:active {
             transform: translate(2px, 2px);
             box-shadow: none;
+        }
+
+        .logo-box {
+            background: var(--yellow);
+            font-size: 0.85rem;
+            padding: 0 6px;
         }
 
         /* 主容器：單欄置中、左右留白 */
@@ -405,17 +394,13 @@
 </head>
 <body>
 
-    <!-- 頂端固定選單 -->
+    <!-- 頂端固定選單：使用 CSS Grid 網格對齊 -->
     <header>
-        <div class="header-inner">
-            <div class="logo">🐙 大阪四天三夜</div>
-            <nav>
-                <ul>
-                    <li><a href="#home">首頁</a></li>
-                    <li><a href="#itinerary">行程</a></li>
-                    <li><a href="#info">資訊</a></li>
-                </ul>
-            </nav>
+        <div class="header-grid">
+            <div class="header-item logo-box">🐙 大阪四天三夜</div>
+            <a href="#home" class="header-item">首頁</a>
+            <a href="#itinerary" class="header-item">行程</a>
+            <a href="#info" class="header-item">資訊</a>
         </div>
     </header>
 
@@ -477,7 +462,7 @@
                 <div class="flight-row" style="background: var(--white); display: block;">
                     <div><strong>Hotel Intergate Osaka Umeda</strong><br><small style="color: #666;">ホテルインターゲート大阪梅田（以梅田為中心，交通極便利）</small></div>
                     <div style="margin-top: 8px;">
-                        <a class="hotel-link" href="https://www.google.com/maps/place/Hotel+Intergate+%E5%A4%A7%E9%98%AA+%E6%A2%85%E7%94%B0/@34.6981353,135.4906501,17z" target="_blank">📍 Google 地圖導覽與位置</a>
+                        <a class="hotel-link" href="https://www.google.com/maps/place/Hotel+Intergate+%E5%A4%A7%E9%98%AA+%E6%A2%85%E7%94%B0/@34.6981353,135.4906501,17z" target="_blank" rel="noopener noreferrer">📍 Google 地圖導覽與位置</a>
                     </div>
                 </div>
             </div>
@@ -609,104 +594,4 @@
 
             <!-- DAY 4 -->
             <div id="day-4" class="day-content">
-                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：梅田自由購物 ➔ 賦歸 (2026/12/17)</p>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">早上 09:00</span>
-                            <div><span class="tag-transport">步行</span></div>
-                        </div>
-                        <div class="item-desc"><strong>悠閒早餐</strong><br>於飯店享用美味早餐，整理行李與戰利品[cite: 1]。</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">上午 10:00</span>
-                            <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
-                        </div>
-                        <div class="item-desc"><strong>梅田自由購物與伴手禮</strong><br>最後機會補齊藥妝、伴手禮與心儀衣物[cite: 1]。</div>
-                    </div>
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">中午 11:30</span>
-                            <div><span class="tag-transport">特急列車</span></div>
-                        </div>
-                        <div class="item-desc"><strong>前往關西機場</strong><br>回飯店拿行李，搭乘列車前往關西機場，準備搭乘 14:00 航班平安返台！</div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- 打勾待辦清單 -->
-        <section class="card todo-card">
-            <h2>📝 行李與行前待辦</h2>
-            <ul class="todo-list">
-                <li class="todo-item" onclick="toggleCheck(this)">
-                    <input type="checkbox"> <span>護照與日幣現金／信用卡確認</span>
-                </li>
-                <li class="todo-item" onclick="toggleCheck(this)">
-                    <input type="checkbox"> <span>Visit Japan Web 填寫完成</span>
-                </li>
-                <li class="todo-item" onclick="toggleCheck(this)">
-                    <input type="checkbox"> <span>網卡／eSIM 啟用確認</span>
-                </li>
-                <li class="todo-item" onclick="toggleCheck(this)">
-                    <input type="checkbox"> <span>Hotel Intergate Osaka Umeda 訂房確認</span>
-                </li>
-                <li class="todo-item" onclick="toggleCheck(this)">
-                    <input type="checkbox"> <span>輕便好走的散步鞋 👟</span>
-                </li>
-            </ul>
-        </section>
-
-    </div>
-
-    <script>
-        // 日期切換功能
-        function switchDay(dayNum) {
-            const contents = document.querySelectorAll('.day-content');
-            const tabs = document.querySelectorAll('.day-tab');
-
-            contents.forEach(el => el.classList.remove('active'));
-            tabs.forEach(el => el.classList.remove('active'));
-
-            document.getElementById(`day-${dayNum}`).classList.add('active');
-            event.currentTarget.classList.add('active');
-        }
-
-        // 待辦清單互動打勾
-        function toggleCheck(item) {
-            const checkbox = item.querySelector('input[type="checkbox"]');
-            if (event.target !== checkbox) {
-                checkbox.checked = !checkbox.checked;
-            }
-            if (checkbox.checked) {
-                item.classList.add('checked');
-            } else {
-                item.classList.remove('checked');
-            }
-        }
-
-        // 出發倒數計時器
-        function updateCountdown() {
-            const departureDate = new Date('2026-12-14T07:30:00').getTime();
-            const now = new Date().getTime();
-            const distance = departureDate - now;
-
-            const countdownEl = document.getElementById('countdown');
-            if (distance < 0) {
-                countdownEl.innerHTML = "🎉 旅程已經展開或圓滿結束囉！";
-                return;
-            }
-
-            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-
-            countdownEl.innerHTML = `✈️ 距離 2026/12/14 出發還有：${days} 天 ${hours} 小時 ${minutes} 分鐘`;
-        }
-
-        updateCountdown();
-        setInterval(updateCountdown, 60000);
-    </script>
-</body>
-</html>
+                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777
