@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 冬天大阪四天三夜旅行導覽</title>
+    <title>2026 冬天大阪四天三夜旅遊導覽</title>
     <!-- Google Fonts: Zen Maru Gothic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,14 +40,23 @@
             padding-bottom: 80px;
         }
 
-        /* 頂端固定選單 */
+        /* 頂端固定選單 (完美置中與對齊) */
         header {
             position: sticky;
             top: 0;
             background-color: var(--bg-color);
             border-bottom: var(--border);
             z-index: 100;
-            padding: 12px 16px;
+            padding: 12px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .header-inner {
+            width: 100%;
+            max-width: 800px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -57,16 +66,20 @@
             font-size: 1.1rem;
             font-weight: 700;
             background: var(--yellow);
-            padding: 4px 12px;
+            padding: 6px 14px;
             border: var(--border);
             border-radius: var(--radius-sm);
             box-shadow: var(--shadow-sm);
+            display: flex;
+            align-items: center;
+            gap: 6px;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 8px;
+            gap: 10px;
+            align-items: center;
         }
 
         nav a {
@@ -75,7 +88,7 @@
             font-size: 0.9rem;
             font-weight: 700;
             background: var(--white);
-            padding: 4px 10px;
+            padding: 6px 14px;
             border: var(--border);
             border-radius: var(--radius-sm);
             box-shadow: var(--shadow-sm);
@@ -88,10 +101,12 @@
             box-shadow: none;
         }
 
+        /* 響應式主容器：電腦版自動變寬且置中 */
         .container {
-            max-width: 600px;
-            margin: 0 auto;
-            padding: 16px;
+            width: 100%;
+            max-width: 700px;
+            margin: 20px auto 0 auto;
+            padding: 0 16px;
         }
 
         /* 通用卡片樣式 */
@@ -100,7 +115,7 @@
             border: var(--border);
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow);
-            padding: 20px;
+            padding: 24px;
             margin-bottom: 24px;
         }
 
@@ -113,13 +128,13 @@
         }
 
         .hero h1 {
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             margin-bottom: 8px;
             font-weight: 700;
         }
 
         .hero p {
-            font-size: 0.95rem;
+            font-size: 1rem;
             margin-bottom: 16px;
         }
 
@@ -128,23 +143,22 @@
             gap: 8px;
             background: var(--white);
             border: var(--border);
-            padding: 8px 16px;
+            padding: 10px 20px;
             border-radius: var(--radius);
             box-shadow: var(--shadow-sm);
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
 
-        /* 更精緻的 SVG 複合動畫元件 */
+        /* SVG 複合動畫元件 */
         .scene-container {
             width: 100%;
-            max-width: 280px;
-            height: 120px;
+            max-width: 300px;
+            height: 130px;
             margin: 0 auto 10px auto;
             display: block;
         }
 
-        /* 各部位獨立精緻動畫 */
         .ani-cloud-1 {
             animation: moveCloud1 6s ease-in-out infinite alternate;
         }
@@ -157,7 +171,7 @@
         }
         .ani-sun {
             animation: pulseSun 3s ease-in-out infinite;
-            transform-origin: 40px 30px;
+            transform-origin: 45px 30px;
         }
 
         @keyframes moveCloud1 {
@@ -189,12 +203,12 @@
             background: var(--white);
             border: var(--border);
             border-radius: var(--radius-sm);
-            padding: 10px 14px;
-            margin-bottom: 10px;
+            padding: 12px 16px;
+            margin-bottom: 12px;
             box-shadow: var(--shadow-sm);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             flex-wrap: wrap;
-            gap: 6px;
+            gap: 8px;
         }
 
         .flight-row:last-child {
@@ -211,29 +225,29 @@
             font-weight: 700;
             text-decoration: underline;
             word-break: break-all;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
 
         /* 日期切換按鈕 */
         .day-tabs {
             display: flex;
-            gap: 8px;
-            margin-bottom: 16px;
+            gap: 10px;
+            margin-bottom: 20px;
             overflow-x: auto;
             padding-bottom: 4px;
         }
 
         .day-tab {
             flex: 1;
-            min-width: 75px;
+            min-width: 85px;
             background: var(--white);
             border: var(--border);
             border-radius: var(--radius-sm);
-            padding: 8px 4px;
+            padding: 10px 6px;
             text-align: center;
             font-family: 'Zen Maru Gothic', sans-serif;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             cursor: pointer;
             box-shadow: var(--shadow-sm);
             transition: background 0.2s, transform 0.1s;
@@ -265,9 +279,9 @@
 
         .timeline {
             position: relative;
-            padding-left: 20px;
+            padding-left: 24px;
             border-left: 3px dashed var(--line-color);
-            margin-left: 10px;
+            margin-left: 12px;
         }
 
         .timeline-item {
@@ -276,7 +290,7 @@
             background: var(--white);
             border: var(--border);
             border-radius: var(--radius);
-            padding: 14px;
+            padding: 16px;
             box-shadow: var(--shadow-sm);
             transition: transform 0.2s;
         }
@@ -288,8 +302,8 @@
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -27.5px;
-            top: 16px;
+            left: -31.5px;
+            top: 18px;
             width: 12px;
             height: 12px;
             background: var(--yellow);
@@ -301,24 +315,24 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 6px;
+            margin-bottom: 8px;
             flex-wrap: wrap;
             gap: 6px;
         }
 
         .time-badge {
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             background: var(--bg-color);
             border: 2px solid var(--line-color);
-            padding: 2px 8px;
+            padding: 3px 10px;
             border-radius: 8px;
         }
 
         .tag-transport {
             background-color: var(--blue);
-            font-size: 0.75rem;
-            padding: 2px 8px;
+            font-size: 0.8rem;
+            padding: 3px 10px;
             border: 2px solid var(--line-color);
             border-radius: 8px;
             font-weight: 700;
@@ -326,8 +340,8 @@
 
         .tag-must {
             background-color: var(--pink);
-            font-size: 0.75rem;
-            padding: 2px 8px;
+            font-size: 0.8rem;
+            padding: 3px 10px;
             border: 2px solid var(--line-color);
             border-radius: 8px;
             font-weight: 700;
@@ -335,7 +349,7 @@
         }
 
         .item-desc {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: #555;
         }
 
@@ -351,21 +365,21 @@
         .todo-item {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
             background: var(--white);
             border: var(--border);
-            padding: 10px 14px;
+            padding: 12px 16px;
             border-radius: var(--radius-sm);
-            margin-bottom: 8px;
+            margin-bottom: 10px;
             box-shadow: var(--shadow-sm);
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             cursor: pointer;
             transition: background 0.1s;
         }
 
         .todo-item input[type="checkbox"] {
-            width: 18px;
-            height: 18px;
+            width: 20px;
+            height: 20px;
             accent-color: var(--line-color);
             cursor: pointer;
         }
@@ -376,8 +390,8 @@
         }
 
         h2 {
-            font-size: 1.2rem;
-            margin-bottom: 14px;
+            font-size: 1.3rem;
+            margin-bottom: 16px;
             font-weight: 700;
             display: flex;
             align-items: center;
@@ -401,14 +415,16 @@
 
     <!-- 頂端固定選單 -->
     <header>
-        <div class="logo">🐙 大阪四天三夜</div>
-        <nav>
-            <ul>
-                <li><a href="#home">首頁</a></li>
-                <li><a href="#itinerary">行程</a></li>
-                <li><a href="#info">資訊</a></li>
-            </ul>
-        </nav>
+        <div class="header-inner">
+            <div class="logo">🐙2026 冬天大阪四天三夜旅行導覽</div>
+            <nav>
+                <ul>
+                    <li><a href="#home">首頁</a></li>
+                    <li><a href="#itinerary">行程</a></li>
+                    <li><a href="#info">資訊</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
     <div class="container">
@@ -416,36 +432,29 @@
         <!-- 首頁區塊 -->
         <section id="home" class="card hero">
             <h1>大阪漫遊手帳 🎒</h1>
-            <p>出發日期：2026/12/14 ｜逛街美食 ＋ 街區漫遊</p>
+            <p>出發日期：2026/12/14 ｜ 逛街美食 ＋ 街區漫遊</p>
             
-            <!-- 精緻大阪特色 SVG 插圖：太陽、大阪城、通天閣、雲朵、飛機 -->
+            <!-- 精緻大阪特色 SVG 插圖 -->
             <svg class="scene-container" viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <!-- 溫暖背景太陽 -->
                 <circle class="ani-sun" cx="45" cy="30" r="14" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
                 
-                <!-- 遠景雲朵 1 -->
                 <g class="ani-cloud-1">
                     <path d="M200 25C195 25 190 28 190 33C190 38 195 40 200 40H225C230 40 233 36 231 32C235 26 228 20 221 23C217 18 208 19 207 25C203 23 198 24 200 25Z" fill="#FFFFFF" stroke="#3E3A39" stroke-width="2.5"/>
                 </g>
 
-                <!-- 大阪城剪影 -->
                 <path d="M110 95V70H140V95H110Z" fill="#F6D27A" stroke="#3E3A39" stroke-width="3"/>
                 <path d="M102 70H148V63H102V70Z" fill="#F2A497" stroke="#3E3A39" stroke-width="3"/>
                 <path d="M118 63V50H132V63H118Z" fill="#A8D3E6" stroke="#3E3A39" stroke-width="3"/>
-                <!-- 城頂裝飾 -->
                 <path d="M123 50L125 43H127L129 50H123Z" fill="#3E3A39"/>
 
-                <!-- 通天閣剪影 -->
                 <path d="M175 95L180 45H200L205 95H175Z" fill="#B9DAA5" stroke="#3E3A39" stroke-width="3"/>
                 <path d="M170 95H210V100H170V95Z" fill="#3E3A39"/>
                 <circle cx="190" cy="55" r="4" fill="#F2A497" stroke="#3E3A39" stroke-width="2"/>
 
-                <!-- 近景雲朵 2 -->
                 <g class="ani-cloud-2">
                     <path d="M30 75C25 75 20 78 20 83C20 88 25 90 30 90H60C65 90 68 86 66 82C70 76 63 70 56 73C52 68 43 69 42 75C38 73 33 74 30 75Z" fill="#FFFFFF" stroke="#3E3A39" stroke-width="3"/>
                 </g>
 
-                <!-- 飛行中的可愛飛機 -->
                 <g class="ani-plane">
                     <path d="M70 40L100 30L88 48L80 42L70 40Z" fill="#FFFFFF" stroke="#3E3A39" stroke-width="3" stroke-linejoin="round"/>
                     <path d="M85 39L94 34" stroke="#3E3A39" stroke-width="2.5" stroke-linecap="round"/>
@@ -496,7 +505,7 @@
 
             <!-- DAY 1 -->
             <div id="day-1" class="day-content active">
-                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：梅田＋中崎町 (2026/12/14)</p>
+                <p style="font-size: 0.9rem; margin-bottom: 14px; font-weight: 700; color: #777;">📍 主題：梅田＋中崎町 (2026/12/14)</p>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="time-header">
@@ -524,7 +533,7 @@
 
             <!-- DAY 2 -->
             <div id="day-2" class="day-content">
-                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：木津市場＋新世界＋心齋橋＋堀江 (2026/12/15)</p>
+                <p style="font-size: 0.9rem; margin-bottom: 14px; font-weight: 700; color: #777;">📍 主題：木津市場＋新世界＋心齋橋＋堀江 (2026/12/15)</p>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="time-header">
@@ -573,7 +582,7 @@
 
             <!-- DAY 3 -->
             <div id="day-3" class="day-content">
-                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：天神橋筋＋中崎町漫遊 (2026/12/16)</p>
+                <p style="font-size: 0.9rem; margin-bottom: 14px; font-weight: 700; color: #777;">📍 主題：天神橋筋＋中崎町漫遊 (2026/12/16)</p>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="time-header">
@@ -608,7 +617,7 @@
 
             <!-- DAY 4 -->
             <div id="day-4" class="day-content">
-                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：梅田自由購物 ➔ 賦歸 (2026/12/17)</p>
+                <p style="font-size: 0.9rem; margin-bottom: 14px; font-weight: 700; color: #777;">📍 主題：梅田自由購物 ➔ 賦歸 (2026/12/17)</p>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="time-header">
@@ -685,7 +694,7 @@
             }
         }
 
-        // 出發倒數計時器（依據資料設定 2026-12-14 07:30:00）
+        // 出發倒數計時器
         function updateCountdown() {
             const departureDate = new Date('2026-12-14T07:30:00').getTime();
             const now = new Date().getTime();
