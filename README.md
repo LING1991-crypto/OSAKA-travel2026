@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 冬天大阪四天三夜旅遊導覽</title>
+    <title>大阪四天三夜悠哉散步手帳</title>
     <!-- Google Fonts: Zen Maru Gothic -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -40,59 +40,57 @@
             padding-bottom: 80px;
         }
 
-        /* 頂端固定選單 (完美置中與對齊) */
+        /* 頂端固定選單：滿版、置中、同行 */
         header {
             position: sticky;
             top: 0;
             background-color: var(--bg-color);
             border-bottom: var(--border);
             z-index: 100;
-            padding: 12px 24px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            width: 100%;
+            padding: 10px 16px;
         }
 
         .header-inner {
             width: 100%;
-            max-width: 800px;
+            max-width: 600px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            gap: 8px;
         }
 
         .logo {
-            font-size: 1.1rem;
+            font-size: 0.95rem;
             font-weight: 700;
             background: var(--yellow);
-            padding: 6px 14px;
+            padding: 5px 10px;
             border: var(--border);
             border-radius: var(--radius-sm);
             box-shadow: var(--shadow-sm);
-            display: flex;
-            align-items: center;
-            gap: 6px;
+            white-space: nowrap;
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 10px;
+            gap: 6px;
             align-items: center;
         }
 
         nav a {
             text-decoration: none;
             color: var(--line-color);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
             background: var(--white);
-            padding: 6px 14px;
+            padding: 5px 10px;
             border: var(--border);
             border-radius: var(--radius-sm);
             box-shadow: var(--shadow-sm);
             display: inline-block;
+            white-space: nowrap;
             transition: transform 0.1s, box-shadow 0.1s;
         }
 
@@ -101,11 +99,11 @@
             box-shadow: none;
         }
 
-        /* 響應式主容器：電腦版自動變寬且置中 */
+        /* 主容器：單欄置中、左右留白 */
         .container {
             width: 100%;
-            max-width: 700px;
-            margin: 20px auto 0 auto;
+            max-width: 560px;
+            margin: 16px auto 0 auto;
             padding: 0 16px;
         }
 
@@ -115,7 +113,7 @@
             border: var(--border);
             border-radius: var(--radius-lg);
             box-shadow: var(--shadow);
-            padding: 24px;
+            padding: 20px;
             margin-bottom: 24px;
         }
 
@@ -128,33 +126,33 @@
         }
 
         .hero h1 {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             margin-bottom: 8px;
             font-weight: 700;
         }
 
         .hero p {
-            font-size: 1rem;
-            margin-bottom: 16px;
+            font-size: 0.9rem;
+            margin-bottom: 14px;
         }
 
         .countdown-box {
             display: inline-flex;
-            gap: 8px;
+            gap: 6px;
             background: var(--white);
             border: var(--border);
-            padding: 10px 20px;
+            padding: 8px 14px;
             border-radius: var(--radius);
             box-shadow: var(--shadow-sm);
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
         }
 
         /* SVG 複合動畫元件 */
         .scene-container {
             width: 100%;
-            max-width: 300px;
-            height: 130px;
+            max-width: 260px;
+            height: 110px;
             margin: 0 auto 10px auto;
             display: block;
         }
@@ -203,12 +201,12 @@
             background: var(--white);
             border: var(--border);
             border-radius: var(--radius-sm);
-            padding: 12px 16px;
-            margin-bottom: 12px;
+            padding: 10px 14px;
+            margin-bottom: 10px;
             box-shadow: var(--shadow-sm);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             flex-wrap: wrap;
-            gap: 8px;
+            gap: 6px;
         }
 
         .flight-row:last-child {
@@ -225,29 +223,26 @@
             font-weight: 700;
             text-decoration: underline;
             word-break: break-all;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
 
-        /* 日期切換按鈕 */
+        /* 日期切換按鈕：不捲動、平均分配同行 */
         .day-tabs {
             display: flex;
-            gap: 10px;
-            margin-bottom: 20px;
-            overflow-x: auto;
-            padding-bottom: 4px;
+            gap: 6px;
+            margin-bottom: 16px;
         }
 
         .day-tab {
             flex: 1;
-            min-width: 85px;
             background: var(--white);
             border: var(--border);
             border-radius: var(--radius-sm);
-            padding: 10px 6px;
+            padding: 8px 2px;
             text-align: center;
             font-family: 'Zen Maru Gothic', sans-serif;
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             cursor: pointer;
             box-shadow: var(--shadow-sm);
             transition: background 0.2s, transform 0.1s;
@@ -279,31 +274,27 @@
 
         .timeline {
             position: relative;
-            padding-left: 24px;
+            padding-left: 20px;
             border-left: 3px dashed var(--line-color);
-            margin-left: 12px;
+            margin-left: 10px;
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 20px;
+            margin-bottom: 18px;
             background: var(--white);
             border: var(--border);
             border-radius: var(--radius);
-            padding: 16px;
+            padding: 14px;
             box-shadow: var(--shadow-sm);
             transition: transform 0.2s;
-        }
-
-        .timeline-item:hover {
-            transform: translateY(-2px);
         }
 
         .timeline-item::before {
             content: '';
             position: absolute;
-            left: -31.5px;
-            top: 18px;
+            left: -27.5px;
+            top: 16px;
             width: 12px;
             height: 12px;
             background: var(--yellow);
@@ -315,24 +306,24 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             flex-wrap: wrap;
             gap: 6px;
         }
 
         .time-badge {
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             background: var(--bg-color);
             border: 2px solid var(--line-color);
-            padding: 3px 10px;
+            padding: 2px 8px;
             border-radius: 8px;
         }
 
         .tag-transport {
             background-color: var(--blue);
-            font-size: 0.8rem;
-            padding: 3px 10px;
+            font-size: 0.75rem;
+            padding: 2px 8px;
             border: 2px solid var(--line-color);
             border-radius: 8px;
             font-weight: 700;
@@ -340,8 +331,8 @@
 
         .tag-must {
             background-color: var(--pink);
-            font-size: 0.8rem;
-            padding: 3px 10px;
+            font-size: 0.75rem;
+            padding: 2px 8px;
             border: 2px solid var(--line-color);
             border-radius: 8px;
             font-weight: 700;
@@ -349,7 +340,7 @@
         }
 
         .item-desc {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #555;
         }
 
@@ -365,21 +356,21 @@
         .todo-item {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 10px;
             background: var(--white);
             border: var(--border);
-            padding: 12px 16px;
+            padding: 10px 14px;
             border-radius: var(--radius-sm);
-            margin-bottom: 10px;
+            margin-bottom: 8px;
             box-shadow: var(--shadow-sm);
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             cursor: pointer;
             transition: background 0.1s;
         }
 
         .todo-item input[type="checkbox"] {
-            width: 20px;
-            height: 20px;
+            width: 18px;
+            height: 18px;
             accent-color: var(--line-color);
             cursor: pointer;
         }
@@ -390,8 +381,8 @@
         }
 
         h2 {
-            font-size: 1.3rem;
-            margin-bottom: 16px;
+            font-size: 1.15rem;
+            margin-bottom: 14px;
             font-weight: 700;
             display: flex;
             align-items: center;
@@ -416,7 +407,7 @@
     <!-- 頂端固定選單 -->
     <header>
         <div class="header-inner">
-            <div class="logo">🐙2026 冬天大阪四天三夜旅行導覽</div>
+            <div class="logo">🐙 大阪四天三夜</div>
             <nav>
                 <ul>
                     <li><a href="#home">首頁</a></li>
@@ -432,7 +423,7 @@
         <!-- 首頁區塊 -->
         <section id="home" class="card hero">
             <h1>大阪漫遊手帳 🎒</h1>
-            <p>出發日期：2026/12/14 ｜ 逛街美食 ＋ 街區漫遊</p>
+            <p>出發日期：2026/12/14 ｜ 80% 逛街美食 ＋ 20% 街區散步</p>
             
             <!-- 精緻大阪特色 SVG 插圖 -->
             <svg class="scene-container" viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -495,7 +486,7 @@
         <section id="itinerary" class="card" style="background-color: #FFFDF9;">
             <h2>📅 每日行程</h2>
             
-            <!-- 日期切換按鈕 -->
+            <!-- 日期切換按鈕 (固定同行，不滑動) -->
             <div class="day-tabs">
                 <button class="day-tab active" onclick="switchDay(1)">DAY 1</button>
                 <button class="day-tab" onclick="switchDay(2)">DAY 2</button>
@@ -505,7 +496,7 @@
 
             <!-- DAY 1 -->
             <div id="day-1" class="day-content active">
-                <p style="font-size: 0.9rem; margin-bottom: 14px; font-weight: 700; color: #777;">📍 主題：梅田＋中崎町 (2026/12/14)</p>
+                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：梅田＋中崎町 (2026/12/14)</p>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="time-header">
@@ -533,7 +524,7 @@
 
             <!-- DAY 2 -->
             <div id="day-2" class="day-content">
-                <p style="font-size: 0.9rem; margin-bottom: 14px; font-weight: 700; color: #777;">📍 主題：木津市場＋新世界＋心齋橋＋堀江 (2026/12/15)</p>
+                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：木津市場＋新世界＋心齋橋＋堀江 (2026/12/15)</p>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="time-header">
@@ -582,7 +573,7 @@
 
             <!-- DAY 3 -->
             <div id="day-3" class="day-content">
-                <p style="font-size: 0.9rem; margin-bottom: 14px; font-weight: 700; color: #777;">📍 主題：天神橋筋＋中崎町漫遊 (2026/12/16)</p>
+                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：天神橋筋＋中崎町漫遊 (2026/12/16)</p>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="time-header">
@@ -617,7 +608,7 @@
 
             <!-- DAY 4 -->
             <div id="day-4" class="day-content">
-                <p style="font-size: 0.9rem; margin-bottom: 14px; font-weight: 700; color: #777;">📍 主題：梅田自由購物 ➔ 賦歸 (2026/12/17)</p>
+                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：梅田自由購物 ➔ 賦歸 (2026/12/17)</p>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="time-header">
