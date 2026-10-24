@@ -408,7 +408,7 @@
         <!-- 首頁區塊 -->
         <section id="home" class="card hero">
             <h1>2026冬天大阪旅遊🎒</h1>
-            <p>出發日期：2026/12/14 ｜ 逛街美食 ＋ 街區漫遊</p>
+            <p>出發日期：2026/12/14 ｜ 逛街美食＋街區漫遊</p>
             
             <!-- 精緻大阪特色 SVG 插圖 -->
             <svg class="scene-container" viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -689,7 +689,7 @@
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-            countdownEl.innerHTML = `✈️ 距離 2026/12/14 出發還有：${days} 天 ${hours} 小時 ${minutes} 分鐘`;
+            countdownEl.innerHTML = `🗾 距離出發還有：${days} 天 ${hours} 小時 ${minutes} 分鐘`;
         }
 
         updateCountdown();
