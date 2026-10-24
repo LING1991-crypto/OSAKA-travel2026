@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
@@ -438,7 +438,7 @@
             <div class="header-item logo-box">🐙 大阪四天三夜</div>
             <a href="#home" class="header-item">首頁</a>
             <a href="#itinerary" class="header-item">行程</a>
-            <a href="#info" class="header-item">資訊</a>
+            <a href="#info" class="header-item">住宿</a>
         </div>
     </header>
 
@@ -446,8 +446,8 @@
 
         <!-- 首頁區塊 -->
         <section id="home" class="card hero">
-            <h1>大阪漫遊手帳 🎒</h1>
-            <p>出發日期：2026/12/14 ｜ 80% 逛街美食 ＋ 20% 街區散步</p>
+            <h1>2026大阪旅遊🎒</h1>
+            <p>出發日期：2026/12/14 ｜ 逛街/美食/漫遊</p>
             
             <!-- 精緻大阪特色 SVG 插圖 -->
             <svg class="scene-container" viewBox="0 0 280 120" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -795,7 +795,7 @@
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-            countdownEl.innerHTML = `✈️ 距離 2026/12/14 出發還有：${days} 天 ${hours} 小時 ${minutes} 分鐘`;
+            countdownEl.innerHTML = `🇯🇵距離出發還有：${days} 天 ${hours} 小時 ${minutes} 分鐘`;
         }
 
         updateCountdown();
