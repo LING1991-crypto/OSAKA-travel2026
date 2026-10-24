@@ -262,36 +262,50 @@
             100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        /* 時間軸線與圓點精準置中對齊 */
+        /* 全新時間軸排版：利用 flex 完美對齊圓點與虛線 */
         .timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
             position: relative;
-            padding-left: 24px;
+            padding-left: 20px;
+        }
+
+        /* 用一條獨立的絕對定位線條當作完美垂直中軸 */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 5px; /* 剛好穿過圓點中心 */
+            top: 10px;
+            bottom: 10px;
+            width: 3px;
             border-left: 3px dashed var(--line-color);
-            margin-left: 14px;
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 18px;
             background: var(--white);
             border: var(--border);
             border-radius: var(--radius);
             padding: 14px;
             box-shadow: var(--shadow-sm);
             transition: transform 0.2s;
+            margin-left: 14px;
         }
 
+        /* 時間軸節點小圓點：利用絕對定位完美對齊中軸線 */
         .timeline-item::before {
             content: '';
             position: absolute;
-            /* 讓圓點精準水平置中壓在 3px 的虛線上 (-25.5px = -(padding-left 24px + 虛線寬度的一半 1.5px)) */
-            left: -25.5px;
-            top: 18px;
+            left: -22.5px; /* 剛好讓 12px 寬的圓點中心落在左側 5px 的虛線上 */
+            top: 50%;
+            transform: translateY(-50%);
             width: 12px;
             height: 12px;
             background: var(--yellow);
             border: var(--border);
             border-radius: 50%;
+            z-index: 2;
         }
 
         .time-header {
