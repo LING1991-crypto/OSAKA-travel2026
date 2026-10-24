@@ -399,7 +399,7 @@
             <div class="header-item logo-box">🐙 2026冬天大阪四天三夜</div>
             <a href="#home" class="header-item">首頁</a>
             <a href="#itinerary" class="header-item">行程</a>
-            <a href="#info" class="header-item">住宿資訊</a>
+            <a href="#info" class="header-item">住宿</a>
         </div>
     </header>
 
