@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
     <meta charset="UTF-8">
@@ -40,7 +39,7 @@
             padding-bottom: 80px;
         }
 
-        /* 頂端固定選單：滿版、置中、同行 */
+        /* 頂端固定選單：滿版、水平置中、高度一致 */
         header {
             position: sticky;
             top: 0;
@@ -53,23 +52,31 @@
 
         .header-inner {
             width: 100%;
-            max-width: 600px;
+            max-width: 560px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 8px;
+            gap: 6px;
         }
 
-        .logo {
-            font-size: 0.95rem;
-            font-weight: 700;
-            background: var(--yellow);
-            padding: 5px 10px;
+        /* 統一標頭所有方塊的高度與內距 */
+        .logo, nav a {
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
             border: var(--border);
             border-radius: var(--radius-sm);
             box-shadow: var(--shadow-sm);
+            font-weight: 700;
             white-space: nowrap;
+        }
+
+        .logo {
+            font-size: 0.9rem;
+            background: var(--yellow);
+            padding: 0 12px;
         }
 
         nav ul {
@@ -83,14 +90,8 @@
             text-decoration: none;
             color: var(--line-color);
             font-size: 0.85rem;
-            font-weight: 700;
             background: var(--white);
-            padding: 5px 10px;
-            border: var(--border);
-            border-radius: var(--radius-sm);
-            box-shadow: var(--shadow-sm);
-            display: inline-block;
-            white-space: nowrap;
+            padding: 0 10px;
             transition: transform 0.1s, box-shadow 0.1s;
         }
 
@@ -226,7 +227,7 @@
             font-size: 0.85rem;
         }
 
-        /* 日期切換按鈕：不捲動、平均分配同行 */
+        /* 日期切換按鈕 */
         .day-tabs {
             display: flex;
             gap: 6px;
@@ -486,7 +487,7 @@
         <section id="itinerary" class="card" style="background-color: #FFFDF9;">
             <h2>📅 每日行程</h2>
             
-            <!-- 日期切換按鈕 (固定同行，不滑動) -->
+            <!-- 日期切換按鈕 -->
             <div class="day-tabs">
                 <button class="day-tab active" onclick="switchDay(1)">DAY 1</button>
                 <button class="day-tab" onclick="switchDay(2)">DAY 2</button>
