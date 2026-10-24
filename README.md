@@ -1,4 +1,4 @@
-# OSAKA-travel2026
+# OSAKA-travel2026 JIN & LING
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
@@ -164,6 +164,8 @@
             margin-bottom: 10px;
             box-shadow: var(--shadow-sm);
             font-size: 0.9rem;
+            flex-wrap: wrap;
+            gap: 6px;
         }
 
         .flight-row:last-child {
@@ -173,6 +175,14 @@
         /* 住宿資訊 */
         .hotel-card {
             background-color: var(--green);
+        }
+
+        .hotel-link {
+            color: var(--line-color);
+            font-weight: 700;
+            text-decoration: underline;
+            word-break: break-all;
+            font-size: 0.85rem;
         }
 
         /* 日期切換按鈕 */
@@ -362,7 +372,7 @@
         <!-- 首頁區塊 -->
         <section id="home" class="card hero">
             <h1>大阪漫遊手帳 🎒</h1>
-            <p>80% 逛街美食 ＋ 20% 街區散步</p>
+            <p>出發日期：2026/12/14 ｜ 80% 逛街美食 ＋ 20% 街區散步</p>
             
             <!-- SVG 插圖：大阪地標與小飛機 -->
             <svg class="floating-svg" width="140" height="100" viewBox="0 0 140 100" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -386,20 +396,22 @@
             <div class="card flight-card">
                 <h2>✈️ 航班資訊</h2>
                 <div class="flight-row">
-                    <div><strong>去程：</strong> 桃園 (TPE) → 大阪 (KIX)</div>
+                    <div><strong>去程：</strong> 桃園中正機場 → 大阪關西機場</div>
                     <div>07:30 - 11:00</div>
                 </div>
                 <div class="flight-row">
-                    <div><strong>回程：</strong> 大阪 (KIX) → 桃園 (TPE)</div>
-                    <div>12:00 - 14:15</div>
+                    <div><strong>回程：</strong> 大阪關西機場 → 桃園中正機場</div>
+                    <div>14:00 - 14:25</div>
                 </div>
             </div>
 
             <div class="card hotel-card">
                 <h2>🏨 住宿資訊</h2>
-                <div class="flight-row" style="background: var(--white);">
-                    <div><strong>Hotel Intergate Osaka Umeda ホテルインターゲート大阪梅田</strong><br><small style="color: #666;">以梅田為中心點，交通逛街極便利</small></div>
-                    <div>4天3夜</div>
+                <div class="flight-row" style="background: var(--white); display: block;">
+                    <div><strong>Hotel Intergate Osaka Umeda</strong><br><small style="color: #666;">ホテルインターゲート大阪梅田（以梅田為中心，交通極便利）</small></div>
+                    <div style="margin-top: 8px;">
+                        <a class="hotel-link" href="https://www.google.com/maps/place/Hotel+Intergate+%E5%A4%A7%E9%98%AA+%E6%A2%85%E7%94%B0/@34.6981353,135.4906501,17z" target="_blank">📍 Google 地圖導覽與位置</a>
+                    </div>
                 </div>
             </div>
         </section>
@@ -418,14 +430,14 @@
 
             <!-- DAY 1 -->
             <div id="day-1" class="day-content active">
-                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：梅田＋中崎町</p>
+                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：梅田＋中崎町 (2026/12/14)</p>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="time-header">
-                            <span class="time-badge">下午 01:30</span>
+                            <span class="time-badge">下午 12:30</span>
                             <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
                         </div>
-                        <div class="item-desc"><strong>梅田逛街血拼</strong><br>LUCUA ／ Grand Front Osaka ／ 阪急梅田 ／ 大丸梅田，展開完美購物之旅！</div>
+                        <div class="item-desc"><strong>梅田逛街血拼</strong><br>抵達梅田與入住飯店後，展開 LUCUA ／ Grand Front Osaka ／ 阪急梅田 ／ 大丸梅田 購物之旅！</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
@@ -446,112 +458,112 @@
 
             <!-- DAY 2 -->
             <div id="day-2" class="day-content">
-                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：木津市場＋新世界＋心齋橋＋堀江</p>
+                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：木津市場＋新世界＋心齋橋＋堀江 (2026/12/15)</p>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">早上 09:00</span>
                             <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
                         </div>
-                        <div class="item-desc"><strong>木津市場早市</strong><br>品嚐新鮮海鮮早餐，體驗道地的市場早晨風情。</div>
+                        <div class="item-desc"><strong>木津市場早市</strong><br>品嚐新鮮海鮮早餐，體驗道地的市場早晨風情[cite: 1]。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">上午 10:30</span>
                             <div><span class="tag-transport">步行</span></div>
                         </div>
-                        <div class="item-desc"><strong>新世界與通天閣</strong><br>漫步懷舊新世界街區，打卡地標通天閣。</div>
+                        <div class="item-desc"><strong>新世界與通天閣</strong><br>漫步懷舊新世界街區，打卡地標通天閣[cite: 1]。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">中午 12:00</span>
                             <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
                         </div>
-                        <div class="item-desc"><strong>心齋橋拉麵午餐 & 商店街</strong><br>品嚐心齋橋人氣拉麵，隨後瘋狂掃貨心齋橋筋商店街與大丸百貨。</div>
+                        <div class="item-desc"><strong>心齋橋拉麵午餐 & 商店街</strong><br>品嚐心齋橋人氣拉麵，隨後瘋狂掃貨心齋橋筋商店街與大丸心齋橋[cite: 1]。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">下午 03:00</span>
                             <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
                         </div>
-                        <div class="item-desc"><strong>美國村 → 堀江 Orange Street</strong><br>穿插造訪個性小店、選物店與質感咖啡廳。</div>
+                        <div class="item-desc"><strong>美國村 → 堀江 Orange Street</strong><br>穿插造訪個性小店、選物店與質感咖啡廳[cite: 1]。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">傍晚 05:30</span>
                             <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
                         </div>
-                        <div class="item-desc"><strong>道頓堀與法善寺橫丁</strong><br>漫步道頓堀霓虹燈區，探訪寧靜的法善寺橫丁。</div>
+                        <div class="item-desc"><strong>道頓堀與法善寺橫丁</strong><br>漫步道頓堀霓虹燈區，探訪寧靜的法善寺橫丁[cite: 1]。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">晚上 07:30</span>
                             <div><span class="tag-transport">步行</span></div>
                         </div>
-                        <div class="item-desc"><strong>和牛晚餐</strong><br>享用精緻的和牛燒肉或和牛壽喜燒大餐。</div>
+                        <div class="item-desc"><strong>和牛晚餐</strong><br>享用精緻的和牛燒肉或和牛壽喜燒大餐[cite: 1]。</div>
                     </div>
                 </div>
             </div>
 
             <!-- DAY 3 -->
             <div id="day-3" class="day-content">
-                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：天神橋筋＋中崎町漫遊</p>
+                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：天神橋筋＋中崎町漫遊 (2026/12/16)</p>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">上午 09:30</span>
                             <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
                         </div>
-                        <div class="item-desc"><strong>天神橋筋商店街</strong><br>造訪日本最長商店街，邊走邊逛特色小店、品嚐在地小吃。</div>
+                        <div class="item-desc"><strong>天神橋筋商店街</strong><br>造訪日本最長商店街，邊走邊逛特色小店、品嚐在地小吃[cite: 1]。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">中午 12:00</span>
                             <div><span class="tag-transport">步行</span></div>
                         </div>
-                        <div class="item-desc"><strong>午餐時光</strong><br>在巷弄中尋找喜愛的質感小店享用午餐。</div>
+                        <div class="item-desc"><strong>午餐時光</strong><br>在巷弄中尋找喜愛的質感小店享用午餐[cite: 1]。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">下午 02:00</span>
                             <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
                         </div>
-                        <div class="item-desc"><strong>中崎町慢活下午茶</strong><br>再次造訪中崎町，深入古著店、雜貨舖、選物店，享受悠閒甜點時光。</div>
+                        <div class="item-desc"><strong>中崎町慢活下午茶</strong><br>再次造訪中崎町，深入古著店、雜貨舖、選物店，享受悠閒甜點時光[cite: 1]。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">傍晚 06:00</span>
                             <div><span class="tag-transport">地鐵</span></div>
                         </div>
-                        <div class="item-desc"><strong>梅田最後衝刺</strong><br>返回梅田進行最後採買與晚餐。</div>
+                        <div class="item-desc"><strong>梅田最後衝刺</strong><br>返回梅田進行最後採買與晚餐[cite: 1]。</div>
                     </div>
                 </div>
             </div>
 
             <!-- DAY 4 -->
             <div id="day-4" class="day-content">
-                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：梅田自由購物 ➔ 賦歸</p>
+                <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：梅田自由購物 ➔ 賦歸 (2026/12/17)</p>
                 <div class="timeline">
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">早上 09:00</span>
                             <div><span class="tag-transport">步行</span></div>
                         </div>
-                        <div class="item-desc"><strong>悠閒早餐</strong><br>享用美味早餐，整理行李與戰利品。</div>
+                        <div class="item-desc"><strong>悠閒早餐</strong><br>於飯店享用美味早餐，整理行李與戰利品[cite: 1]。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
                             <span class="time-badge">上午 10:00</span>
                             <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
                         </div>
-                        <div class="item-desc"><strong>梅田自由購物與伴手禮</strong><br>最後機會補齊藥妝、伴手禮與心儀衣物。</div>
+                        <div class="item-desc"><strong>梅田自由購物與伴手禮</strong><br>最後機會補齊藥妝、伴手禮與心儀衣物[cite: 1]。</div>
                     </div>
                     <div class="timeline-item">
                         <div class="time-header">
-                            <span class="time-badge">下午 02:30</span>
+                            <span class="time-badge">中午 11:30</span>
                             <div><span class="tag-transport">特急列車</span></div>
                         </div>
-                        <div class="item-desc"><strong>前往關西機場</strong><br>回飯店拿行李，搭乘南海電鐵或Haruka前往關西機場，平安搭機返台！</div>
+                        <div class="item-desc"><strong>前往關西機場</strong><br>回飯店拿行李，搭乘列車前往關西機場，準備搭乘 14:00 航班平安返台！</div>
                     </div>
                 </div>
             </div>
@@ -571,7 +583,7 @@
                     <input type="checkbox"> <span>網卡／eSIM 啟用確認</span>
                 </li>
                 <li class="todo-item" onclick="toggleCheck(this)">
-                    <input type="checkbox"> <span>行動電源與充電線</span>
+                    <input type="checkbox"> <span>Hotel Intergate Osaka Umeda 訂房確認</span>
                 </li>
                 <li class="todo-item" onclick="toggleCheck(this)">
                     <input type="checkbox"> <span>輕便好走的散步鞋 👟</span>
@@ -607,9 +619,9 @@
             }
         }
 
-        // 出發倒數計時器（以 2026-11-01 08:35:00 為預設出發示範日期，可自行調整）
+        // 出發倒數計時器（依據資料設定 2026-12-14 07:30:00）
         function updateCountdown() {
-            const departureDate = new Date('2026-11-01T08:35:00').getTime();
+            const departureDate = new Date('2026-12-14T07:30:00').getTime();
             const now = new Date().getTime();
             const distance = departureDate - now;
 
@@ -623,7 +635,7 @@
             const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
             const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
 
-            countdownEl.innerHTML = `✈️ 距離出發還有：${days} 天 ${hours} 小時 ${minutes} 分鐘`;
+            countdownEl.innerHTML = `✈️ 距離 2026/12/14 出發還有：${days} 天 ${hours} 小時 ${minutes} 分鐘`;
         }
 
         updateCountdown();
