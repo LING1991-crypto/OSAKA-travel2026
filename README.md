@@ -387,18 +387,18 @@
                 <h2>✈️ 航班資訊</h2>
                 <div class="flight-row">
                     <div><strong>去程：</strong> 桃園 (TPE) → 大阪 (KIX)</div>
-                    <div>08:35 - 12:15</div>
+                    <div>07:30 - 11:00</div>
                 </div>
                 <div class="flight-row">
                     <div><strong>回程：</strong> 大阪 (KIX) → 桃園 (TPE)</div>
-                    <div>18:20 - 20:10</div>
+                    <div>12:00 - 14:15</div>
                 </div>
             </div>
 
             <div class="card hotel-card">
                 <h2>🏨 住宿資訊</h2>
                 <div class="flight-row" style="background: var(--white);">
-                    <div><strong>梅田中心住宿</strong><br><small style="color: #666;">以梅田為中心點，交通逛街極便利</small></div>
+                    <div><strong>Hotel Intergate Osaka Umeda ホテルインターゲート大阪梅田</strong><br><small style="color: #666;">以梅田為中心點，交通逛街極便利</small></div>
                     <div>4天3夜</div>
                 </div>
             </div>
