@@ -488,11 +488,11 @@
                 <h2>✈️ 航班資訊</h2>
                 <div class="flight-row">
                     <div><strong>去程：</strong> 桃園中正機場 → 大阪關西機場</div>
-                    <div>07:30 - 11:00</div>
+                    <div>航班H11228 07:30 - 11:00</div>
                 </div>
                 <div class="flight-row">
                     <div><strong>回程：</strong> 大阪關西機場 → 桃園中正機場</div>
-                    <div>14:00 - 14:25</div>
+                    <div>航班H11229 14:00 - 14:25</div>
                 </div>
             </div>
 
