@@ -246,7 +246,7 @@
             background: var(--pink);
         }
 
-        /* 行程時間軸與彈跳切換動畫 */
+        /* 行程時間軸與切換動畫 */
         .day-content {
             display: none;
         }
@@ -262,50 +262,72 @@
             100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        /* 全新時間軸排版：利用 flex 完美對齊圓點與虛線 */
-        .timeline {
+        /* 
+           ===== 100% 幾何絕對置中時間軸 ===== 
+           1. .timeline-list: 外層包覆容器
+           2. .timeline-dashed-line: 貫穿全區的虛線，精確定位在 12px 中央點 (Left: 12px)
+           3. .timeline-row: 橫向 Flex 排版
+           4. .timeline-axis: 固定寬度 24px 的獨立軸線區塊
+           5. .timeline-dot: 14px 寬高實心圓點，以 50% 水平與垂直 Transform 置中於 .timeline-axis
+        */
+        .timeline-container {
+            position: relative;
             display: flex;
             flex-direction: column;
             gap: 18px;
-            position: relative;
-            padding-left: 20px;
         }
 
-        /* 用一條獨立的絕對定位線條當作完美垂直中軸 */
-        .timeline::before {
-            content: '';
+        /* 貫穿全行程的中央虛線 */
+        .timeline-dashed-line {
             position: absolute;
-            left: 5px; /* 剛好穿過圓點中心 */
-            top: 10px;
-            bottom: 10px;
-            width: 3px;
+            left: 12px;
+            top: 15px;
+            bottom: 15px;
+            width: 0px;
             border-left: 3px dashed var(--line-color);
+            transform: translateX(-50%); /* 確保 3px 線條的中心點恰好落在 12px */
+            z-index: 1;
         }
 
-        .timeline-item {
+        .timeline-row {
+            display: flex;
+            align-items: center; /* 右側卡片與左側圓點絕對垂直置中 */
+            gap: 12px;
             position: relative;
+            z-index: 2;
+        }
+
+        /* 獨立軸線欄位：寬 24px */
+        .timeline-axis {
+            width: 24px;
+            height: 100%;
+            min-height: 24px;
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        /* 圓點：以 50%/50% 與 translate(-50%, -50%) 達到完全數學置中 */
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 14px;
+            height: 14px;
+            background-color: var(--yellow);
+            border: var(--border);
+            border-radius: 50%;
+            box-sizing: content-box;
+        }
+
+        /* 右側行程卡片主體 */
+        .timeline-card {
+            flex: 1;
             background: var(--white);
             border: var(--border);
             border-radius: var(--radius);
             padding: 14px;
             box-shadow: var(--shadow-sm);
-            transition: transform 0.2s;
-            margin-left: 14px;
-        }
-
-        /* 時間軸節點小圓點：利用絕對定位完美對齊中軸線 */
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -22.5px; /* 剛好讓 12px 寬的圓點中心落在左側 5px 的虛線上 */
-            top: 50%;
-            transform: translateY(-50%);
-            width: 12px;
-            height: 12px;
-            background: var(--yellow);
-            border: var(--border);
-            border-radius: 50%;
-            z-index: 2;
         }
 
         .time-header {
@@ -500,27 +522,49 @@
             <!-- DAY 1 -->
             <div id="day-1" class="day-content active">
                 <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：梅田＋中崎町 (2026/12/14)</p>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">下午 12:30</span>
-                            <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
+                <div class="timeline-container">
+                    <div class="timeline-dashed-line"></div>
+
+                    <!-- 行程項目 1 -->
+                    <div class="timeline-row">
+                        <div class="timeline-axis">
+                            <div class="timeline-dot"></div>
                         </div>
-                        <div class="item-desc"><strong>梅田逛街血拼</strong><br>抵達梅田與入住飯店後，展開 LUCUA ／ Grand Front Osaka ／ 阪急梅田 ／ 大丸梅田 購物之旅！</div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">下午 12:30</span>
+                                <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
+                            </div>
+                            <div class="item-desc"><strong>梅田逛街血拼</strong><br>抵達梅田與入住飯店後，展開 LUCUA ／ Grand Front Osaka ／ 阪急梅田 ／ 大丸梅田 購物之旅！</div>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">下午 03:30</span>
-                            <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+
+                    <!-- 行程項目 2 -->
+                    <div class="timeline-row">
+                        <div class="timeline-axis">
+                            <div class="timeline-dot"></div>
                         </div>
-                        <div class="item-desc"><strong>中崎町散步漫遊</strong><br>穿梭老屋、古著店、手作小店與特色咖啡廳，感受復古文青氣息。</div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">下午 03:30</span>
+                                <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+                            </div>
+                            <div class="item-desc"><strong>中崎町散步漫遊</strong><br>穿梭老屋、古著店、手作小店與特色咖啡廳，感受復古文青氣息。</div>
+                        </div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">傍晚 06:30</span>
-                            <div><span class="tag-transport">步行</span></div>
+
+                    <!-- 行程項目 3 -->
+                    <div class="timeline-row">
+                        <div class="timeline-axis">
+                            <div class="timeline-dot"></div>
                         </div>
-                        <div class="item-desc"><strong>晚餐與夜景</strong><br>返回梅田享用美味晚餐，並欣賞璀璨的梅田夜景。</div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">傍晚 06:30</span>
+                                <div><span class="tag-transport">步行</span></div>
+                            </div>
+                            <div class="item-desc"><strong>晚餐與夜景</strong><br>返回梅田享用美味晚餐，並欣賞璀璨的梅田夜景。</div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -528,48 +572,68 @@
             <!-- DAY 2 -->
             <div id="day-2" class="day-content">
                 <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：木津市場＋新世界＋心齋橋＋堀江 (2026/12/15)</p>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">早上 09:00</span>
-                            <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
+                <div class="timeline-container">
+                    <div class="timeline-dashed-line"></div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-axis"><div class="timeline-dot"></div></div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">早上 09:00</span>
+                                <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
+                            </div>
+                            <div class="item-desc"><strong>木津市場早市</strong><br>品嚐新鮮海鮮早餐，體驗道地的市場早晨風情。</div>
                         </div>
-                        <div class="item-desc"><strong>木津市場早市</strong><br>品嚐新鮮海鮮早餐，體驗道地的市場早晨風情[span_0](start_span)[span_0](end_span)。</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">上午 10:30</span>
-                            <div><span class="tag-transport">步行</span></div>
+                    <div class="timeline-row">
+                        <div class="timeline-axis"><div class="timeline-dot"></div></div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">上午 10:30</span>
+                                <div><span class="tag-transport">步行</span></div>
+                            </div>
+                            <div class="item-desc"><strong>新世界與通天閣</strong><br>漫步懷舊新世界街區，打卡地標通天閣。</div>
                         </div>
-                        <div class="item-desc"><strong>新世界與通天閣</strong><br>漫步懷舊新世界街區，打卡地標通天閣[span_1](start_span)[span_1](end_span)。</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">中午 12:00</span>
-                            <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
+                    <div class="timeline-row">
+                        <div class="timeline-axis"><div class="timeline-dot"></div></div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">中午 12:00</span>
+                                <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
+                            </div>
+                            <div class="item-desc"><strong>心齋橋拉麵午餐 & 商店街</strong><br>品嚐心齋橋人氣拉麵，隨後瘋狂掃貨心齋橋筋商店街與大丸心齋橋。</div>
                         </div>
-                        <div class="item-desc"><strong>心齋橋拉麵午餐 & 商店街</strong><br>品嚐心齋橋人氣拉麵，隨後瘋狂掃貨心齋橋筋商店街與大丸心齋橋[span_2](start_span)[span_2](end_span)。</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">下午 03:00</span>
-                            <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+                    <div class="timeline-row">
+                        <div class="timeline-axis"><div class="timeline-dot"></div></div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">下午 03:00</span>
+                                <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+                            </div>
+                            <div class="item-desc"><strong>美國村 → 堀江 Orange Street</strong><br>穿插造訪個性小店、選物店與質感咖啡廳。</div>
                         </div>
-                        <div class="item-desc"><strong>美國村 → 堀江 Orange Street</strong><br>穿插造訪個性小店、選物店與質感咖啡廳[span_3](start_span)[span_3](end_span)。</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">傍晚 05:30</span>
-                            <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+                    <div class="timeline-row">
+                        <div class="timeline-axis"><div class="timeline-dot"></div></div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">傍晚 05:30</span>
+                                <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+                            </div>
+                            <div class="item-desc"><strong>道頓堀與法善寺橫丁</strong><br>漫步道頓堀霓虹燈區，探訪寧靜的法善寺橫丁。</div>
                         </div>
-                        <div class="item-desc"><strong>道頓堀與法善寺橫丁</strong><br>漫步道頓堀霓虹燈區，探訪寧靜的法善寺橫丁[span_4](start_span)[span_4](end_span)。</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">晚上 07:30</span>
-                            <div><span class="tag-transport">步行</span></div>
+                    <div class="timeline-row">
+                        <div class="timeline-axis"><div class="timeline-dot"></div></div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">晚上 07:30</span>
+                                <div><span class="tag-transport">步行</span></div>
+                            </div>
+                            <div class="item-desc"><strong>和牛晚餐</strong><br>享用精緻的和牛燒肉或和牛壽喜燒大餐。</div>
                         </div>
-                        <div class="item-desc"><strong>和牛晚餐</strong><br>享用精緻的和牛燒肉或和牛壽喜燒大餐[span_5](start_span)[span_5](end_span)。</div>
                     </div>
                 </div>
             </div>
@@ -577,34 +641,48 @@
             <!-- DAY 3 -->
             <div id="day-3" class="day-content">
                 <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：天神橋筋＋中崎町漫遊 (2026/12/16)</p>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">上午 09:30</span>
-                            <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
+                <div class="timeline-container">
+                    <div class="timeline-dashed-line"></div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-axis"><div class="timeline-dot"></div></div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">上午 09:30</span>
+                                <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
+                            </div>
+                            <div class="item-desc"><strong>天神橋筋商店街</strong><br>造訪日本最長商店街，邊走邊逛特色小店、品嚐在地小吃。</div>
                         </div>
-                        <div class="item-desc"><strong>天神橋筋商店街</strong><br>造訪日本最長商店街，邊走邊逛特色小店、品嚐在地小吃[span_6](start_span)[span_6](end_span)。</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">中午 12:00</span>
-                            <div><span class="tag-transport">步行</span></div>
+                    <div class="timeline-row">
+                        <div class="timeline-axis"><div class="timeline-dot"></div></div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">中午 12:00</span>
+                                <div><span class="tag-transport">步行</span></div>
+                            </div>
+                            <div class="item-desc"><strong>午餐時光</strong><br>在巷弄中尋找喜愛的質感小店享用午餐。</div>
                         </div>
-                        <div class="item-desc"><strong>午餐時光</strong><br>在巷弄中尋找喜愛的質感小店享用午餐[span_7](start_span)[span_7](end_span)。</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">下午 02:00</span>
-                            <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+                    <div class="timeline-row">
+                        <div class="timeline-axis"><div class="timeline-dot"></div></div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">下午 02:00</span>
+                                <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+                            </div>
+                            <div class="item-desc"><strong>中崎町慢活下午茶</strong><br>再次造訪中崎町，深入古著店、雜貨舖、選物店，享受悠閒甜點時光。</div>
                         </div>
-                        <div class="item-desc"><strong>中崎町慢活下午茶</strong><br>再次造訪中崎町，深入古著店、雜貨舖、選物店，享受悠閒甜點時光[span_8](start_span)[span_8](end_span)。</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">傍晚 06:00</span>
-                            <div><span class="tag-transport">地鐵</span></div>
+                    <div class="timeline-row">
+                        <div class="timeline-axis"><div class="timeline-dot"></div></div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">傍晚 06:00</span>
+                                <div><span class="tag-transport">地鐵</span></div>
+                            </div>
+                            <div class="item-desc"><strong>梅田最後衝刺</strong><br>返回梅田進行最後採買與晚餐。</div>
                         </div>
-                        <div class="item-desc"><strong>梅田最後衝刺</strong><br>返回梅田進行最後採買與晚餐[span_9](start_span)[span_9](end_span)。</div>
                     </div>
                 </div>
             </div>
@@ -612,27 +690,38 @@
             <!-- DAY 4 -->
             <div id="day-4" class="day-content">
                 <p style="font-size: 0.85rem; margin-bottom: 12px; font-weight: 700; color: #777;">📍 主題：梅田自由購物 ➔ 賦歸 (2026/12/17)</p>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">早上 09:00</span>
-                            <div><span class="tag-transport">步行</span></div>
+                <div class="timeline-container">
+                    <div class="timeline-dashed-line"></div>
+
+                    <div class="timeline-row">
+                        <div class="timeline-axis"><div class="timeline-dot"></div></div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">早上 09:00</span>
+                                <div><span class="tag-transport">步行</span></div>
+                            </div>
+                            <div class="item-desc"><strong>悠閒早餐</strong><br>於飯店享用美味早餐，整理行李與戰利品。</div>
                         </div>
-                        <div class="item-desc"><strong>悠閒早餐</strong><br>於飯店享用美味早餐，整理行李與戰利品[span_10](start_span)[span_10](end_span)。</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">上午 10:00</span>
-                            <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+                    <div class="timeline-row">
+                        <div class="timeline-axis"><div class="timeline-dot"></div></div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">上午 10:00</span>
+                                <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+                            </div>
+                            <div class="item-desc"><strong>梅田自由購物與伴手禮</strong><br>最後機會補齊藥妝、伴手禮與心儀衣物。</div>
                         </div>
-                        <div class="item-desc"><strong>梅田自由購物與伴手禮</strong><br>最後機會補齊藥妝、伴手禮與心儀衣物[span_11](start_span)[span_11](end_span)。</div>
                     </div>
-                    <div class="timeline-item">
-                        <div class="time-header">
-                            <span class="time-badge">中午 11:30</span>
-                            <div><span class="tag-transport">特急列車</span></div>
+                    <div class="timeline-row">
+                        <div class="timeline-axis"><div class="timeline-dot"></div></div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">中午 11:30</span>
+                                <div><span class="tag-transport">特急列車</span></div>
+                            </div>
+                            <div class="item-desc"><strong>前往關西機場</strong><br>回飯店拿行李，搭乘列車前往關西機場，準備搭乘 14:00 航班平安返台！</div>
                         </div>
-                        <div class="item-desc"><strong>前往關西機場</strong><br>回飯店拿行李，搭乘列車前往關西機場，準備搭乘 14:00 航班平安返台！</div>
                     </div>
                 </div>
             </div>
