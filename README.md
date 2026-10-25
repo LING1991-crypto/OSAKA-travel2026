@@ -492,7 +492,7 @@
                 </div>
                 <div class="flight-row">
                     <div><strong>回程：</strong> 大阪關西機場 → 桃園中正機場</div>
-                    <div>航班H11229 14:00 - 14:25</div>
+                    <div>航班H11229 12:00 - 14:25</div>
                 </div>
             </div>
 
@@ -722,7 +722,7 @@
                         <div class="timeline-card">
                             <div class="time-header">
                                 <span class="time-badge">上午 08:52</span>
-                                <div><span class="tag-transport">Haruka</span><span class="tag-must">必去</span></div>
+                                <div><span class="tag-transport">Haruka</span><span class="tag-must">重要</span></div>
                             </div>
                             <div class="item-desc"><strong>搭車前往關西機場</strong><br>車埕47分鐘。</div>
                         </div>
@@ -757,6 +757,9 @@
                 <li class="todo-item" onclick="toggleCheck(this)">
                     <input type="checkbox"> <span>Hotel Intergate Osaka Umeda 訂房確認</span>
                 </li>
+                 <li class="todo-item" onclick="toggleCheck(this)">
+                     <input type="checkbox"> <span>Haruka車票 QR code確認</span>
+                 </li>
                 <li class="todo-item" onclick="toggleCheck(this)">
                     <input type="checkbox"> <span>輕便好走的散步鞋 👟</span>
                 </li>
