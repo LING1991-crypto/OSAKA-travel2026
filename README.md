@@ -436,9 +436,9 @@
     <header>
         <div class="header-grid">
             <div class="header-item logo-box">大阪Jin+Ling</div>
-            <a href="#home" class="header-item">首頁</a>
-            <a href="#itinerary" class="header-item">行程</a>
+            <a href="#home" class="header-item">航班</a>
             <a href="#info" class="header-item">住宿</a>
+            <a href="#itinerary" class="header-item">行程</a>
         </div>
     </header>
 
