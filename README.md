@@ -532,10 +532,10 @@
                         </div>
                         <div class="timeline-card">
                             <div class="time-header">
-                                <span class="time-badge">下午 12:30</span>
-                                <div><span class="tag-transport">地鐵</span><span class="tag-must">必去</span></div>
+                                <span class="time-badge">下午 12:44</span>
+                                <div><span class="tag-transport">Haruka</span><span class="tag-must">重要</span></div>
                             </div>
-                            <div class="item-desc"><strong>梅田逛街血拼</strong><br>抵達梅田與入住飯店後，展開 LUCUA ／ Grand Front Osaka ／ 阪急梅田 ／ 大丸梅田 購物之旅！</div>
+                            <div class="item-desc"><strong>先到飯店放行李</strong><br>車程47分鐘，到大阪車站下車，步行550公尺抵達飯店</div>
                         </div>
                     </div>
 
@@ -546,10 +546,10 @@
                         </div>
                         <div class="timeline-card">
                             <div class="time-header">
-                                <span class="time-badge">下午 03:30</span>
+                                <span class="time-badge">下午 14:00</span>
                                 <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
                             </div>
-                            <div class="item-desc"><strong>中崎町散步漫遊</strong><br>穿梭老屋、古著店、手作小店與特色咖啡廳，感受復古文青氣息。</div>
+                            <div class="item-desc"><strong>梅田逛街血拼</strong><br>出發逛街，展開 LUCUA ／ Grand Front Osaka ／ 阪急梅田 ／ 大丸梅田 購物之旅！</div>
                         </div>
                     </div>
 
@@ -560,7 +560,21 @@
                         </div>
                         <div class="timeline-card">
                             <div class="time-header">
-                                <span class="time-badge">傍晚 06:30</span>
+                                <span class="time-badge">下午 04:30</span>
+                                <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+                            </div>
+                            <div class="item-desc"><strong>中崎町散步漫遊</strong><br>穿梭老屋、古著店、手作小店與特色咖啡廳，感受復古文青氣息。</div>
+                        </div>
+                    </div>
+
+                    <!-- 行程項目 4 -->
+                    <div class="timeline-row">
+                        <div class="timeline-axis">
+                            <div class="timeline-dot"></div>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="time-header">
+                                <span class="time-badge">傍晚 07:00</span>
                                 <div><span class="tag-transport">步行</span></div>
                             </div>
                             <div class="item-desc"><strong>晚餐與夜景</strong><br>返回梅田享用美味晚餐，並欣賞璀璨的梅田夜景。</div>
@@ -697,30 +711,30 @@
                         <div class="timeline-axis"><div class="timeline-dot"></div></div>
                         <div class="timeline-card">
                             <div class="time-header">
-                                <span class="time-badge">早上 09:00</span>
+                                <span class="time-badge">早上 07:00</span>
                                 <div><span class="tag-transport">步行</span></div>
                             </div>
-                            <div class="item-desc"><strong>悠閒早餐</strong><br>於飯店享用美味早餐，整理行李與戰利品。</div>
+                            <div class="item-desc"><strong>悠閒早餐</strong><br>於附近小店享用美味早餐，回飯店整理行李做最後確認。</div>
                         </div>
                     </div>
                     <div class="timeline-row">
                         <div class="timeline-axis"><div class="timeline-dot"></div></div>
                         <div class="timeline-card">
                             <div class="time-header">
-                                <span class="time-badge">上午 10:00</span>
-                                <div><span class="tag-transport">步行</span><span class="tag-must">必去</span></div>
+                                <span class="time-badge">上午 08:52</span>
+                                <div><span class="tag-transport">Haruka</span><span class="tag-must">必去</span></div>
                             </div>
-                            <div class="item-desc"><strong>梅田自由購物與伴手禮</strong><br>最後機會補齊藥妝、伴手禮與心儀衣物。</div>
+                            <div class="item-desc"><strong>搭車前往關西機場</strong><br>車埕47分鐘。</div>
                         </div>
                     </div>
                     <div class="timeline-row">
                         <div class="timeline-axis"><div class="timeline-dot"></div></div>
                         <div class="timeline-card">
                             <div class="time-header">
-                                <span class="time-badge">中午 11:30</span>
-                                <div><span class="tag-transport">特急列車</span></div>
+                                <span class="time-badge">上午 09:36</span>
+                                <div><span class="tag-transport">步行</span></div>
                             </div>
-                            <div class="item-desc"><strong>前往關西機場</strong><br>回飯店拿行李，搭乘列車前往關西機場，準備搭乘 14:00 航班平安返台！</div>
+                            <div class="item-desc"><strong>抵達關西機場</strong><br>出關、辦理退稅，準備搭乘 12:00 航班平安返台！</div>
                         </div>
                     </div>
                 </div>
